@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  a(href="/") Back to index
+  h1= title
+  p This demo makes two requests to the IP service at ip.jsontest.com. The first shows the shared IP of the Azure machine this app is currently running on. The second request is made through the QuotaGuard proxy, demonstrating that to the outside world your IP address is no longer the shared Azure IP.
+  p Code can be found on 
+   a(href="https://github.com/teachmatic/quotaguard-azure-node-demo") Github
+
+  h2 QuotaGuard demo
+  table
+    tr
+      td Windows IP (no proxy)
+      td= azure_data
+    tr
+      td QuotaGuard IP
+      td= data

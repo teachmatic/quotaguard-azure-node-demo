@@ -5,9 +5,10 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var quotaguard = require('./routes/quotaguard')
+var quotaguardstatic = require('./routes/quotaguardstatic')
 
 var app = express();
 
@@ -29,8 +30,10 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/quotaguard', quotaguard.index);
+app.get('/quotaguardstatic', quotaguardstatic.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
